@@ -1,4 +1,4 @@
-# Samples for the enterprise Svg ui control for .NET6 and MAUI
+# Samples for the enterprise Svg ui control for .NET7 and MAUI
 
 This repository holds samples and doc for the SVG control for Windows, Android, iOS and Mac.
 [More infos](https://vapolia.eu)
