@@ -6,13 +6,13 @@ This repository holds samples and doc for the SVG control for Windows, Android, 
 [![NuGet][nuget-img]][nuget-link] ![Nuget](https://img.shields.io/nuget/dt/Vapolia.Svg)
 
 
-Maui Control:  
-`SvgImage` (display an svg) and `SvgImageSource` (svg ImageSource for buttons, tabs, ...)
+Maui Controls:  
+- `SvgImage` (display an svg)
+- `SvgImageSource` (svg ImageSource for buttons, tabs, ...)
 
-Native Controls (for use without Maui):  
-Android: `SvgImageView` and `SvgPictureDrawable`  
-iOS and Mac:  `UISvgImageView`  
-Windows: `Svg`
+Native Controls (not for maui):  
+- Android (not for maui): `SvgImageView` and `SvgPictureDrawable`  
+- iOS and Mac (not for maui):  `UISvgImageView`  
 
 
 
