@@ -74,7 +74,7 @@ builder
 
 Remarks:
 * The `xmlns:svg` attribute is required on the `ContentPage`.
-* `Source` is the name of an svg image. This image is searched in embedded resources across all loaded assemblies.
+* `Source` is the name of an svg image. This image is searched in embedded resources across all loaded assemblies. This list is cached.
 * All properties are bindable.
 
 You can also use `<SvgImageSource Svg="...." Height="50" />` as the ImageSource for tab icons, button icons, navigation bar icons, ...  
@@ -85,20 +85,18 @@ The compact syntax `ImageSource="{controls:Svg refresh.svg,Height=50}"` is easie
 
 The `ColorMapping`, `ColorMappingSelected` or `ColorMappingDisabled` properties are useful to change some colors in the SVG before displaying it, or depending on a state (normal, selected, disabled).
 
-The string `ffffff=>00ff00,000000=>0000FF` means replace `ffffff` (white) by `00ff00` (green) and replace `000000` (black) by `0000FF` (red).
+The string `ffffff=>00ff00 000000=>0000FF` means replace `ffffff` (white) by `00ff00` (green) and replace `000000` (black) by `0000FF` (red).
 
-A color mapping is a string which contains a list of mappings separated by "," or ";".  
+A color mapping is a string which contains a list of mappings separated by "," or ";" or a space.  
 A mapping has two parts, separated by "=>" (or "="). The left part is the color that should be replaced by the color specified by the right part.  
 A color is a standard html color code: `AARRGGBB`, `RRGGBB`, or `RGB`. A is the transparency (alpha channel).
 
-Color mappings are bindable: instead of specifying a string, use a list of `ColorMapping` objects and add them to the `ColorMapping` property.
+Color mappings are bindable: instead of specifying a string, use a list of `ColorMapping`:
 
 ```c#
 <svg:SvgImage Source="logo.svg" HorizontalOptions="Start" HeighRequest="32">
-    <svg:SvgImage.ColorMapping>
-      <ColorMapping OldColor="Blue" NewColor="#80000000" />
-      <ColorMapping OldColor="#FFF" NewColor="{Binding YourColorProperty}" />
-    </svg:SvgImage.ColorMapping>
+    <ColorMapping OldColor="Blue" NewColor="#80000000" />
+    <ColorMapping OldColor="#FFF" NewColor="{Binding YourColorProperty}" />
 </svg:SvgImage>              
 ```
 
