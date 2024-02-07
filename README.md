@@ -19,7 +19,7 @@ Native Controls (not for maui):
 
 # Quick start for MAUI
 
-## In MauiProgram.cs, add `.AddEasySvg()` to the builder
+## In MauiProgram.cs, add `.UseEasySvg()` to the builder
 
 ```c#
 builder
