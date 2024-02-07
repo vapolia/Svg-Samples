@@ -19,19 +19,6 @@ Native Controls (not for maui):
 
 # Quick start for MAUI
 
-## Add some svg files
-
-Create a folder "images" and put your svg files there. Make sure they have the `.svg` extension.
-
-Also add the following lines anywhere in your .csproj so these SVGs are configured as `embedded resources`:
-
-```xml
-<ItemGroup>
-  <None Remove="images\**\*.svg" />
-  <EmbeddedResource Include="images\**\*.svg" />
-</ItemGroup>
-```
-
 ## In MauiProgram.cs, add `.AddEasySvg()` to the builder
 
 ```c#
@@ -40,14 +27,29 @@ builder
     .UseEasySvg();
 ```
 
+## Add some SVG images
 
-## Use the `SvgImage` control or the `SvgImageSource` control
+- Create a new folder "images" in your project
+- put your SVG images there. Make sure they have the `.svg` extension.
+- add the following lines to your .csproj file:
+
+```xml
+<ItemGroup>
+  <None Remove="images\**\*.svg" />
+  <EmbeddedResource Include="images\**\*.svg" />
+</ItemGroup>
+```
+
+ That configures all SVG images as `embedded resources`
+
+
+##  In a XAML page, use `SvgImage` or `SvgImageSource`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:svg="clr-namespace:Vapolia.Svgs;assembly=Vapolia.Svg"
+             xmlns:svg="https://vapolia.eu/svg"
              x:Class="XamSvg.Demo.MainPage"
              IconImageSource="{svg:Svg myicon.svg,Height=60}">
 
