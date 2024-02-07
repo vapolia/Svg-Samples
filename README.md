@@ -1,4 +1,4 @@
-# Samples for the enterprise Svg ui control for .NET7 and MAUI
+# Samples for the enterprise Svg ui control for .NET8 and MAUI
 
 This repository holds samples and doc for the SVG control for Windows, Android, iOS and Mac.
 [More infos](https://vapolia.eu)
@@ -37,7 +37,7 @@ Also add the following lines anywhere in your .csproj so these SVGs are configur
 ```c#
 builder
     .UseMauiApp<App>()
-    .AddEasySvg();
+    .UseEasySvg();
 ```
 
 
@@ -172,7 +172,7 @@ Another common error is setting the `ImageSource` of a `Button` in a style or in
 
 # Other Receipes
 
-**Android native**: make the svg image height the same height of a Button
+**Android native** (not maui ios): make the svg image height the same height of a Button
 <details>
   <summary>Click to expand</summary>
   
@@ -213,14 +213,14 @@ Note that as the svg has an intrinsic width computed from its height and its asp
 </details>
 
 
-**Android native**: set back button toolbar icon
+**Android native**  (not maui ios): set back button toolbar icon
 
 ```csharp
 var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 toolbar.NavigationIcon = SvgFactory.GetDrawable("backward.svg", "000000=FFFFFF");
 ```
 
-**iOS storyboard**: usage in an xcode storyboard
+**iOS storyboard** (not maui ios): usage in an xcode storyboard
 <details>
   <summary>Click to expand</summary>
 Using Visual Studio Mac, open your storyboard file using `Open with xcode`. Add an Image view (UIImageView), set its custcom `Class` property to `UISvgImageView`, and optionally add new `User Defined Runtime Attributes` as required:
@@ -330,7 +330,7 @@ And usage:
      //Don't forget to call OnPropertyChanged(nameof(StyleKeyToUse)) after each change.
 ```
 
-## Android native
+## Android native (not maui android)
 <details>
   <summary>Click to expand</summary>
 Layout properties:
@@ -351,7 +351,7 @@ android:autoMirrored | bool | false | true to mirror image in RTL languages
 `android:gravity` is respected, and included in the width/height measurement. If the svg is smaller than its view, this property controls its centering.
 </details>
 
-## iOS native
+## iOS native (not maui ios)
 <details>
   <summary>Click to expand</summary>
 
