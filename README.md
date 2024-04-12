@@ -1,4 +1,4 @@
-# Samples for the enterprise Svg ui control for .NET8 and MAUI
+# Samples for the enterprise Svg ui control for .NET8 (native) and MAUI
 
 This repository holds samples and doc for the SVG control for Windows, Android, iOS and Mac.
 [More infos](https://vapolia.eu)
@@ -219,6 +219,12 @@ Note that as the svg has an intrinsic width computed from its height and its asp
 var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 toolbar.NavigationIcon = SvgFactory.GetDrawable("backward.svg", "000000=FFFFFF");
 ```
+
+**iOS/Android: Load svg from a background thread**
+<details>
+    <summary>Click to expand</summary>
+See [this gist](https://gist.github.com/softlion/17aea986a8ea3594595ddf869ee49b37)
+</details>
 
 **iOS storyboard** (not maui ios): usage in an xcode storyboard
 <details>
