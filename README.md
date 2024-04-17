@@ -66,6 +66,9 @@ builder
         <svg:SvgImage WidthRequest="100" Source="https://upload.wikimedia.org/wikipedia/commons/1/15/Svg.svg" />
 
         <svg:SvgImage WidthRequest="100" Source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlb..." />
+
+        <Image Source="{svg:Svg Source=no_image_available.svg, Width=40, ColorMapping='000=>666'}"
+               WidthRequest="40" />
       
     </StackLayout>
   </ContentView>
@@ -80,6 +83,8 @@ Remarks:
 You can also use `<SvgImageSource Svg="...." Height="50" />` as the ImageSource for tab icons, button icons, navigation bar icons, ...  
 For those, the Widht and/or Height is mandatory and non bindable, as ImageSource objects are static in MAUI (limitation of MAUI).  
 The compact syntax `ImageSource="{controls:Svg refresh.svg,Height=50}"` is easier to use.
+
+Note that SvgImageSource converts the svg image into a passive raster image displayed by another UI control like `Image`. The consequence is, it supports only one ColorMapping.
 
 # Color Mapping
 
