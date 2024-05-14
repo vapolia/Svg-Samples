@@ -222,7 +222,7 @@ Note that as the svg has an intrinsic width computed from its height and its asp
 
 ```csharp
 var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-toolbar.NavigationIcon = SvgFactory.GetDrawable("backward.svg", "000000=FFFFFF");
+toolbar.NavigationIcon = SvgFactory.GetDrawable("backward.svg", "000000=>FFFFFF");
 ```
 
 **iOS/Android: Load svg from a background thread**
