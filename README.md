@@ -269,7 +269,7 @@ These constraints are removed at compile-time, meaning they will have no effect 
 Default namespace:
   
 ```xml
-xmlns:svg="clr-namespace:Vapolia.Svgs;assembly=Vapolia.Svg"
+xmlns:svg="https://vapolia.eu/svg"
 ```
 
 ### SvgImage control
