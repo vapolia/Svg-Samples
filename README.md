@@ -210,7 +210,7 @@ Another common error is setting the `ImageSource` of a `Button` in a style or in
         app:colorMapping="000000=e01a1a"
         app:colorMappingSelected="000000=ff3030"
         app:colorMappingDisabled="000000=1a1a1a"
-        app:fillMode="fit"
+        app:aspect="fit"
         app:svg="info.svg" />
 ```
 
@@ -244,11 +244,11 @@ Using Visual Studio Mac, open your storyboard file using `Open with xcode`. Add 
 | ColorMapping | String | 000000=e01a1a
 | ColorMappingSelected | String | 000000=ff3030
 
-To size your svg, set contraints on one dimension only. The other dimension will be set using the first dimension and the computed aspect ratio. If you set constraints on both dimensions, the svg will stretch. You can prevent this by setting FillMode to Fit (along with ContentMode to AspectFit):
+To size your svg, set contraints on one dimension only. The other dimension will be set using the first dimension and the computed aspect ratio. If you set constraints on both dimensions, the svg will stretch. You can prevent this by setting Aspect to Fit (along with ContentMode to AspectFit):
 
 | Key Path | Type | Sample Value
 | --------- | ----- | ----
-| FillMode | String | Fit
+| Aspect    | String | Fit
 
 When only one dimension is constrained, the designer don't know how to set the other dimension and displays contraint errors. The solution is to set the `intrinsic size` to a manual value in the dimension which has no contraint (in the dimension property pane of the designer).
 
@@ -290,7 +290,7 @@ Command | ICommand | if set, execute this command on tap
 CommandParameter | object | parameter to send when calling Command.Execute
 Width | double | Optional. You can also specify the width only and height will be computed from the aspect ratio
 Height | double | Optional
-FillMode | FillMode | Fit, Fill, Crop. Useful only if both width and height are forced. Default to Fit to maintain the aspect ratio.
+Aspect | SvgAspect | Fit, Fill, FitCrop. Useful only if both width and height are forced. Default to Fit to maintain the aspect ratio.
 IsLoadAsync | bool | set to False to disable async image loading, making the image appear immediatly. Default to True.
 IsHighlightEnabled | bool | if set, ColorMappingSelected is used while the image is pressed (until the finger is released)
 ViewportTransform | IMatrix | transform the svg using any matrix before displaying it
@@ -312,7 +312,7 @@ Source | string or `SvgSource` | svg to display.
 Width | double | Optional. You can also specify the width only and height will be computed from the aspect ratio.
 Height | double | Optional.
 ColorMapping | string or `ObservableCollection<ColorMapping>` | see color mapping reference. Default to none.
-SvgFillMode | FillMode | Fit, Fill, Crop. Useful only if both width and height are forced. Default to Fit to maintain the aspect ratio.
+Aspect | SvgAspect | Fit, Fill, FitCrop. Useful only if both width and height are forced. Default to Fit to maintain the aspect ratio.
 PreventTintOnIos | bool | Default to false. Prevents tinting on iOS, thus always displaying the original image.
 
 All properties are bindable, but Xamarin Forms does not support changing them after the control using this SvgImageSource is rendered.
@@ -354,8 +354,8 @@ app:colorMappingSelected | string | (null) | example: FF000000=FFa0a0a0;FFFFFFFF
 app:colorMappingDisabled | string | (null)
 app:traceEnabled | bool | false
 app:loadAsync | bool | true
-app:fillMode | enum | fit | fit, fill of fit_crop (new v3.1.0). fit_crop: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding). 
-android:adjustViewBounds | bool | true | if true and fillMode is not Fill, the svg view will grow or shrink depending on the svg size.
+app:aspect | enum | fit | fit, fill of fit_crop (new v3.1.0). fit_crop: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding). 
+android:adjustViewBounds | bool | true | if true and aspect is not Fill, the svg view will grow or shrink depending on the svg size.
 android:autoMirrored | bool | false | true to mirror image in RTL languages
 
 `android:padding` is respected, and included in the width/height measurement.  
@@ -379,11 +379,11 @@ ColorMappingSelected | string | (null) | example: FF000000=FFa0a0a0;FFFFFFFF=000
 TraceEnabled | bool | false
 IsLoadAsync | bool | true | set to false to force the svg to appear immediatly, or if it disappears sometimes
 AlignmentMode | string | TopLeft | TopLeft, CenterHorizontally, CenterVertically, Center. Can be combined (in code only).
-FillMode | string | Fit | Fit, Fill, FitCrop.
+Aspect | string | Fit | Fit, Fill, FitCrop.
 FillWidth | number | 0 | The width the svg would like to have. 0 to let the OS decides using UI constraints or Frame value.
 FillHeight | number | 0 | The height the svg would like to have. 0 to let the OS decides using UI constraints or Frame value.
 
-`UIImageView.ContentMode` is forced by `UISvgImageView`, so it has no impact. Use `FillMode` instead.
+`UIImageView.ContentMode` is forced by `UISvgImageView`, so it has no impact. Use `Aspect` instead.
 </details>
 
 
