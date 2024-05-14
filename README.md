@@ -177,7 +177,7 @@ Another common error is setting the `ImageSource` of a `Button` in a style or in
 
 # Other Receipes
 
-**Android native** (not maui ios): make the svg image height the same height of a Button
+**Android native** (not maui android): make the svg image height the same height of a Button
 <details>
   <summary>Click to expand</summary>
   
@@ -218,7 +218,7 @@ Note that as the svg has an intrinsic width computed from its height and its asp
 </details>
 
 
-**Android native**  (not maui ios): set back button toolbar icon
+**Android native**  (not maui android): set back button toolbar icon
 
 ```csharp
 var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
