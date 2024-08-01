@@ -177,6 +177,12 @@ Another common error is setting the `ImageSource` of a `Button` in a style or in
 
 # Other Receipes
 
+**iOS or Android Native** (not maui): set the license
+```c#
+Vapolia.Svgs.Config.License = "...";
+```
+
+
 **Android native** (not maui android): make the svg image height the same height of a Button
 <details>
   <summary>Click to expand</summary>
