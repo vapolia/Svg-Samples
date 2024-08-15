@@ -29,7 +29,7 @@ builder
 
 ## Add some SVG images
 
-- Create a new folder "images" in your project
+- Create a new folder "VectorImages" in your project. Do not use any existing 'Resources/Images' folder !
 - put your SVG images there. Make sure they have the `.svg` extension.
 - add the following lines to your .csproj file:
 
