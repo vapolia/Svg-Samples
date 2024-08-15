@@ -35,12 +35,12 @@ builder
 
 ```xml
 <ItemGroup>
-  <None Remove="images\**\*.svg" />
-  <EmbeddedResource Include="images\**\*.svg" />
+  <None Remove="VectorImages\**\*.svg" />
+  <EmbeddedResource Include="VectorImages\**\*.svg" />
 </ItemGroup>
 ```
 
- That configures all SVG images as `embedded resources`
+ That configures those Svg images as `embedded resources`
 
 
 ##  In a XAML page, use `SvgImage` or `SvgImageSource`
