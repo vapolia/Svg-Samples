@@ -83,7 +83,7 @@ Remarks:
 
 You can also use `<SvgImageSource Svg="...." Height="50" />` as the ImageSource for tab icons, button icons, navigation bar icons, ...  
 For those, the Widht and/or Height is mandatory and non bindable, as ImageSource objects are static in MAUI (limitation of MAUI).  
-The compact syntax `ImageSource="{controls:Svg refresh.svg,Height=50}"` is easier to use.
+The compact syntax `ImageSource="{svg:Svg refresh.svg,Height=50}"` is easier to use.
 
 Note that SvgImageSource converts the svg image into a passive raster image displayed by another UI control like `Image`. The consequence is, it supports only one ColorMapping.
 
