@@ -7,13 +7,13 @@ This repository holds samples and doc for the SVG control for Windows, Android, 
 
 # SvgImage and SvgImageSource
 
-Maui Controls:  
-- `SvgImage` (display an svg)
-- `SvgImageSource` (svg ImageSource for buttons, tabs, ...)
+.net8 Maui Controls:
+- `SvgImage` displays an svg
+- `SvgImageSource` displays an svg inside buttons, tabs and more.
 
-Native Controls (not for maui):  
-- Android (not for maui): `SvgImageView` and `SvgPictureDrawable`  
-- iOS and Mac (not for maui):  `UISvgImageView`  
+.net8 Native Controls (without maui):
+- Android: `SvgImageView` and `SvgPictureDrawable`
+- iOS and Mac:  `UISvgImageView` with support for xcode designer
 
 
 
