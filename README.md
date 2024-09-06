@@ -5,6 +5,7 @@ This repository holds samples and doc for the SVG control for Windows, Android, 
 
 [![NuGet][nuget-img]][nuget-link] ![Nuget](https://img.shields.io/nuget/dt/Vapolia.Svg)
 
+# SvgImage and SvgImageSource
 
 Maui Controls:  
 - `SvgImage` (display an svg)
