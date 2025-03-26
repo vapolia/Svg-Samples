@@ -1,17 +1,17 @@
-# Samples for the enterprise Svg ui control for .NET8 (native) and MAUI
+# Samples for the Enterprise SVG UI control for MAUI and native platforms
 
-This repository holds samples and doc for the SVG control for Windows, Android, iOS and Mac.
+This repository contains samples and documentation for the SVG control on Windows, Android, iOS, and Mac.
 [More infos](https://vapolia.eu)
 
 [![NuGet][nuget-img]][nuget-link] ![Nuget](https://img.shields.io/nuget/dt/Vapolia.Svg)
 
 # SvgImage and SvgImageSource
 
-.net8 Maui Controls:
+.net Maui Controls:
 - `SvgImage` displays an svg
 - `SvgImageSource` displays an svg inside buttons, tabs and more.
 
-.net8 Native Controls (without maui):
+.net Native Controls (without maui):
 - Android: `SvgImageView` and `SvgPictureDrawable`
 - iOS and Mac:  `UISvgImageView` with support for xcode designer
 
@@ -30,9 +30,9 @@ builder
 
 ## Add some SVG images
 
-- Create a new folder "VectorImages" in your project. Do not use any existing 'Resources/Images' folder !
-- put your SVG images there. Make sure they have the `.svg` extension.
-- add the following lines to your .csproj file:
+- Create a new folder named `VectorImages` in your project. Do not use the existing `Resources/Images` folder !
+- place your SVG images there, ensuring they have the `.svg` extension.
+- add the following lines to your `.csproj` file:
 
 ```xml
 <ItemGroup>
@@ -41,7 +41,7 @@ builder
 </ItemGroup>
 ```
 
- That configures those Svg images as `embedded resources`
+ That configures the svg images as `embedded resources`.
 
 
 ##  In a XAML page, use `SvgImage` or `SvgImageSource`
@@ -78,26 +78,28 @@ builder
 
 Remarks:
 * The `xmlns:svg` attribute is required on the `ContentPage`.
-* `Source` is the name of an svg image. This image is searched in embedded resources across all loaded assemblies. This list is cached.
+* `Source` is the name of an svg image. This image is searched in embedded resources across all loaded assemblies. This list is cached on first use.
 * All properties are bindable.
 
-You can also use `<SvgImageSource Svg="...." Height="50" />` as the ImageSource for tab icons, button icons, navigation bar icons, ...  
-For those, the Widht and/or Height is mandatory and non bindable, as ImageSource objects are static in MAUI (limitation of MAUI).  
+You can also use `<SvgImageSource Svg="...." Height="50" />` as the ImageSource for tab icons, button icons, navigation bar icons, and more.  
+For these elements, the `Widht` and/or `Height` properties are mandatory and cannot be bound, as `ImageSource` objects are static in MAUI (a MAUI limitation).  
 The compact syntax `ImageSource="{svg:Svg refresh.svg,Height=50}"` is easier to use.
 
-Note that SvgImageSource converts the svg image into a passive raster image displayed by another UI control like `Image`. The consequence is, it supports only one ColorMapping.
+Note: `SvgImageSource` converts the svg image into a static raster image, which is then displayed by another UI control like `Image`. As a result, it supports only one ColorMapping.
 
 # Color Mapping
 
-The `ColorMapping`, `ColorMappingSelected` or `ColorMappingDisabled` properties are useful to change some colors in the SVG before displaying it, or depending on a state (normal, selected, disabled).
+The `ColorMapping`, `ColorMappingSelected` and `ColorMappingDisabled` properties allow you to modify specific colors in the SVG before displaying it, or based on its state (normal, selected, disabled).
 
-The string `ffffff=>00ff00 000000=>0000FF` means replace `ffffff` (white) by `00ff00` (green) and replace `000000` (black) by `0000FF` (red).
+For example, the string `ffffff=>00ff00 000000=>0000FF` means:
+* replace `ffffff` (white) by `00ff00` (green)
+* and replace `000000` (black) by `0000FF` (blue).
 
-A color mapping is a string which contains a list of mappings separated by "," or ";" or a space.  
-A mapping has two parts, separated by "=>" (or "="). The left part is the color that should be replaced by the color specified by the right part.  
-A color is a standard html color code: `AARRGGBB`, `RRGGBB`, or `RGB`. A is the transparency (alpha channel).
+A color mapping is a string containing a list of mappings separated by ",", ";", or a space.  
+Each mapping consists of two parts, separated by "=>" (or "="). The left part is the color to replace, and the right part is the new color.  
+A color is a standard HTML color code in one of the following format: `AARRGGBB`, `RRGGBB`, or `RGB`. A is the transparency (alpha channel).
 
-Color mappings are bindable: instead of specifying a string, use a list of `ColorMapping`:
+Color mappings are bindable: instead of specifying a string, you can use a list of `ColorMapping` objects:
 
 ```c#
 <svg:SvgImage Source="logo.svg" HorizontalOptions="Start" HeighRequest="32">
@@ -143,14 +145,14 @@ Svg image with bindable color mapping
 
 # Common mistakes
 
-If nothing appears, make sure your svg is displayed correctly by the windows explorer (after you installed this [extension](https://github.com/maphew/svg-explorer-extension/releases)). 
+If nothing appears, ensure your svg file is displayed correctly in Windows Explorer (after installing this [extension](https://github.com/maphew/svg-explorer-extension/releases)). 
 
-Common errors include
-* forgetting to set the build action of the svg file to "Embedded resource".
-* missing viewBox attribute at the root of the svg file (open it using a text editor).
-* the svg color is the same as the background color, especially white or black. Use ColorMapping to change colors, or edit your svg file with [inkscape](http://www.inkscape.org/) or your preferred text editor.
+Common errors include:
+* Forgetting to set the build action of the svg file to "Embedded resource".
+* Missing the `viewBox` attribute at the root of the svg file (open it using a text editor to check).
+* The svg color being the same as the background color, especially white or black. Use ColorMapping to adjust the colors, or edit your svg file using [inkscape](http://www.inkscape.org/) or your preferred editor.
 
-The assembly in which the svg resources are must have an `assembly Name` equal to its `Default namespace`, otherwise the svg files will not be found. If you are unable to do so, you can still display an svg but you will have to specify the full name of the resource like this:
+The assembly containing the svg resources must have an `Assembly Name` that matches its `Default Namespace`. Otherwise, the svg files will not be found. If you cannot do this, you can still display an svg by specifying the full resource name, like this:
 
 ```xml
     <svg:SvgImage
@@ -159,11 +161,11 @@ The assembly in which the svg resources are must have an `assembly Name` equal t
         />
 ```
 
-You can discover the full name of an embedded resource by opening your assembly (.dll in your bin folder) in the free tool `Telerik JustDecompile`.
+You can discover the full name of an embedded resource by opening your assembly (.dll in your bin folder) with the free tool `Telerik JustDecompile`.
 
 [![image.png](https://i.postimg.cc/8cT3hbPM/image.png)](https://postimg.cc/jwkZTPfS)
 
-Another common error is setting the `ImageSource` of a `Button` in a style or in a trigger. Instead you must set the `Image` property.
+Another common mistake is setting the `ImageSource` of a `Button` in a style or trigger. Instead, you must set the `Image` property.
 
 ```xml
 <Style x:Key="FAB" TargetType="Button">
@@ -184,7 +186,7 @@ Vapolia.Svgs.Config.License = "...";
 ```
 
 
-**Android native** (not maui android): make the svg image height the same height of a Button
+**Android native** (not MAUI Android): set the SVG image height the match the height of a Button
 <details>
   <summary>Click to expand</summary>
   
@@ -221,18 +223,18 @@ Vapolia.Svgs.Config.License = "...";
         app:svg="info.svg" />
 ```
 
-Note that as the svg has an intrinsic width computed from its height and its aspect ratio, the width displayed by the designer is incorrect. You can correct the designer by assigning a design time only value to `layout_width` using the `tools` prefix: `tools:layout_width="30dp"` which requires the `xmlns:tools` namespace declaration.
+Note that since the SVG has an intrinsic width calculated from its height and aspect ratio, the width displayed by the designer is incorrect. You can correct this in the designer by assigning a design-time only value to `layout_width` using the `tools` prefix: `tools:layout_width="30dp"` which requires the `xmlns:tools` namespace declaration.
 </details>
 
 
-**Android native**  (not maui android): set back button toolbar icon
+**Android native**  (not MAUI Android): set the icon for the back button in the toolbar
 
 ```csharp
 var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 toolbar.NavigationIcon = SvgFactory.GetDrawable("backward.svg", "000000=>FFFFFF");
 ```
 
-**iOS/Android: Load svg from a background thread**
+**iOS/Android: Load an SVG from a background thread**
 <details>
     <summary>Click to expand</summary>
 See [this gist](https://gist.github.com/softlion/17aea986a8ea3594595ddf869ee49b37)
@@ -241,7 +243,7 @@ See [this gist](https://gist.github.com/softlion/17aea986a8ea3594595ddf869ee49b3
 **iOS storyboard** (not maui ios): usage in an xcode storyboard
 <details>
   <summary>Click to expand</summary>
-Using Visual Studio Mac, open your storyboard file using `Open with xcode`. Add an Image view (UIImageView), set its custcom `Class` property to `UISvgImageView`, and optionally add new `User Defined Runtime Attributes` as required:
+Open your storyboard file using `Open with xcode`. Add an Image view (UIImageView), set its custcom `Class` property to `UISvgImageView`, and optionally add a new `User Defined Runtime Attributes` as required:
 
 ![Attribute Inspector](https://image.ibb.co/e5N0uw/Prt_Scr_capture_11.jpg)
 
@@ -251,22 +253,22 @@ Using Visual Studio Mac, open your storyboard file using `Open with xcode`. Add 
 | ColorMapping | String | 000000=e01a1a
 | ColorMappingSelected | String | 000000=ff3030
 
-To size your svg, set contraints on one dimension only. The other dimension will be set using the first dimension and the computed aspect ratio. If you set constraints on both dimensions, the svg will stretch. You can prevent this by setting Aspect to Fit (along with ContentMode to AspectFit):
+To size your svg, set contraints on only one dimension. The other dimension will be calculated based on the first dimension and the SVG's aspect ratio. If you set constraints on both dimensions, the SVG will stretch. You can prevent this by setting `Aspect` to `Fit` (along with `ContentMode` set to `AspectFit`):
 
 | Key Path | Type | Sample Value
 | --------- | ----- | ----
 | Aspect    | String | Fit
 
-When only one dimension is constrained, the designer don't know how to set the other dimension and displays contraint errors. The solution is to set the `intrinsic size` to a manual value in the dimension which has no contraint (in the dimension property pane of the designer).
+When only one dimension is constrained, the designer cannot determine how to set the other dimension and will display contraint errors. The solution is to set the `intrinsic size` to a manual value in the dimension that has no contraint (in the dimension property pane of the designer).
 
 ![Intrinsic Size](https://image.ibb.co/bzeDEw/Prt_Scr_capture_12.jpg)
 
 1. Select the `UISvgImageView` view.
-2. Show the size inspector (⌘Shift5).
+2. Open the size inspector (⌘Shift5).
 3. Change the "Intrinsic Size" drop-down from "Default (System Defined)" to "Placeholder."
-4. Enter reasonable guesses at your view's runtime width **or** height. Width if you set contraints on the height, height otherwise.
+4. Enter a reasonable estimate for your view's runtime width **or** height. Use Width if you have set contraints on the height, and height otherwise.
 
-These constraints are removed at compile-time, meaning they will have no effect on your running app, and the layout engine will add constraints as appropriate at runtime to respect your view's intrinsicContentSize.
+These constraints are removed at compile-time, meaning they will not affect your running app. The layout engine will add constraints as necessary at runtime to respect your view's intrinsicContentSize.
 </details>
   
 # Reference
@@ -280,7 +282,7 @@ xmlns:svg="https://vapolia.eu/svg"
 ```
 
 ### SvgImage control
-`SvgImage` displays a image in up to 2 states: normal, selected
+`SvgImage` displays an image in up to two states: normal, selected
 
 ```xml
 <svg:SvgImage Source="union.svg" HeightRequest="70" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -396,7 +398,7 @@ FillHeight | number | 0 | The height the svg would like to have. 0 to let the OS
 
 ## Advanced configuration
 
-The svg files that don't specify the full path of an assembly are searched in the embedded resources of all loaded assemblies automatically. If you have late loading assemblies that are not detected, or if you prefer to manually specify the assemblies, call AddResourceAssembly. Example:
+The SVG files that don't specify the full path of an assembly are automatically searched in the embedded resources of all loaded assemblies. If you have assemblies that are loaded late and not detected, or if you prefer to manually specify the assemblies, call AddResourceAssembly. Example:
 
 ```csharp
 public class App : Application
@@ -411,13 +413,13 @@ public class App : Application
 
 ## Tools
 
-On Windows install the [microsoft powertoys](https://docs.microsoft.com/fr-fr/windows/powertoys/file-explorer) to preview the svg files in windows explorer.
+On Windows install the [microsoft powertoys](https://docs.microsoft.com/fr-fr/windows/powertoys/file-explorer) to preview the SVG files in the Windows Explorer.
 
 ## More infos
 
 [More infos](https://vapolia.eu)
 
-Commercial support available.
+Commercial support is available.
 
 [nuget-img]: https://img.shields.io/nuget/vpre/Vapolia.Svg
 [nuget-link]: https://www.nuget.org/packages/Vapolia.Svg
