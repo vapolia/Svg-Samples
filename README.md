@@ -1,15 +1,26 @@
-# Samples for the Enterprise SVG UI control for MAUI and native platforms
+|               Maui and Native iOS + Android on net8/9               |
+|:------------------------------------------------------------------------------------------------:|
+| [![NuGet][nuget-img]][nuget-link]  ![Nuget](https://img.shields.io/nuget/dt/Vapolia.Svg) |
+|                                    [![][demo-img]][demo-link]                                    |
 
-This repository contains samples and documentation for the SVG control on Windows, Android, iOS, and Mac.
-[More infos](https://vapolia.eu)
+# SVG
 
-[![NuGet][nuget-img]][nuget-link] ![Nuget](https://img.shields.io/nuget/dt/Vapolia.Svg)
+This UI control allows you to seamlessly integrate Scalable Vector Graphics into your cross-platform applications:
+- SVG ensures high-quality visuals across different devices and screen sizes
+- SVG enhances the user experience with crisp and responsive graphics
+- SVG files are lightweight and efficient, having a fraction of the size of raster images (JPG, PNG). They reduce load times and improve performance.
+
+Use Cases:
+- Use SVGs for app icons, menu and toolbar items, and inside buttons to maintain a consistent and sharp appearance across various resolutions and devices.
+- Branding Elements: Incorporate SVG logos and branding elements that remain crisp and clear, regardless of the device or screen size.
+
+Enterprise support available: contact [Vapolia](https://vapolia.eu)
 
 # SvgImage and SvgImageSource
 
 .net Maui Controls:
-- `SvgImage` displays an svg
-- `SvgImageSource` displays an svg inside buttons, tabs and more.
+- `SvgImage` displays an SVG image
+- `SvgImageSource` displays an SVG inside buttons, tabs or for any ImageSource.
 
 .net Native Controls (without maui):
 - Android: `SvgImageView` and `SvgPictureDrawable`
@@ -408,6 +419,18 @@ public class App : Application
 ## Tools
 
 On Windows install the [microsoft powertoys](https://docs.microsoft.com/fr-fr/windows/powertoys/file-explorer) to preview the SVG files in the Windows Explorer.
+
+### Supported Platforms
+- Maui, net-iOS, net-Android, Xamarin Forms
+- Android api level 15+ (Android 4.0.3+)  
+- iOS 8+
+
+### Mvvm friendly
+This control provides an event and a Command when the image is tapped, making it easy to use with or without mvvm frameworks.  
+It also implements `INotifyPropertyChanged`.
+
+### Live Preview
+This control supports hot reload and live preview.
 
 ### Enterprise Support
 
