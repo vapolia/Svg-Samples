@@ -180,12 +180,6 @@ Another common mistake is setting the `ImageSource` of a `Button` in a style or 
 
 # Other Receipes
 
-**iOS or Android Native** (not maui): set the license
-```c#
-Vapolia.Svgs.Config.License = "...";
-```
-
-
 **Android native** (not MAUI Android): set the SVG image height the match the height of a Button
 <details>
   <summary>Click to expand</summary>
@@ -418,8 +412,6 @@ On Windows install the [microsoft powertoys](https://docs.microsoft.com/fr-fr/wi
 ## More infos
 
 [More infos](https://vapolia.eu)
-
-Commercial support is available.
 
 [nuget-img]: https://img.shields.io/nuget/vpre/Vapolia.Svg
 [nuget-link]: https://www.nuget.org/packages/Vapolia.Svg
