@@ -409,9 +409,11 @@ public class App : Application
 
 On Windows install the [microsoft powertoys](https://docs.microsoft.com/fr-fr/windows/powertoys/file-explorer) to preview the SVG files in the Windows Explorer.
 
-## More infos
+### Enterprise Support
 
-[More infos](https://vapolia.eu)
+[Enterprise support is available: contact sales](https://vapolia.eu)  
+[Source code is available: contact sales](https://vapolia.eu)
+
 
 [nuget-img]: https://img.shields.io/nuget/vpre/Vapolia.Svg
 [nuget-link]: https://www.nuget.org/packages/Vapolia.Svg
