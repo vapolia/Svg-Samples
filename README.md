@@ -440,4 +440,6 @@ This control supports hot reload and live preview.
 
 [nuget-img]: https://img.shields.io/nuget/vpre/Vapolia.Svg
 [nuget-link]: https://www.nuget.org/packages/Vapolia.Svg
+[demo-img]: https://img.shields.io/badge/demo-source%20code-lightgrey.svg
+[demo-link]: https://github.com/vapolia/Svg-Samples/tree/master/Demos
 
