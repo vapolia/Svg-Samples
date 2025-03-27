@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Svg Native Demo</string>
+    <string name="app_text">Hello, Svg!</string>
+</resources>

@@ -1,0 +1,111 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="clr-namespace:Vapolia.Svgs;assembly=Vapolia.Svg"
+             xmlns:svgMauiDemo="clr-namespace:SvgMauiDemo"
+             xmlns:effects="clr-namespace:Vapolia.Maui.Effects"
+             xmlns:views="clr-namespace:SvgMauiDemo.Views"
+             x:Class="SvgMauiDemo.MainPage"
+             x:DataType="svgMauiDemo:MainPageViewModel">
+    <ContentPage.BindingContext>
+        <svgMauiDemo:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Color x:Key="MaterialSecondary">#658191</Color>
+        <svg:ColorMappings x:Key="ButtonIconColorMapping">
+            <svg:ColorMapping OldColor="#000" NewColor="{StaticResource MaterialSecondary}" />
+        </svg:ColorMappings>
+        
+        <Style x:Key="LinkButton" TargetType="Button">
+                    <Setter Property="FontSize" Value="Small"/>
+                    <Setter Property="FontAttributes" Value="None"/>
+                    <Setter Property="TextColor" Value="{DynamicResource MainLinkForeground}"/>
+                    <Setter Property="effects:ButtonEffects.RemovePadding" Value="True"/>
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="VisualStateManager.VisualStateGroups">
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                        <Setter Property="TextColor" Value="{DynamicResource MainLinkDisabledForeground}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="{DynamicResource PaneSeparatorColor}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </Setter>
+                </Style>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid RowDefinitions="Auto,*">
+            <VerticalStackLayout Spacing="25" VerticalOptions="Fill">
+                <Label Text="Hello, Vector Images!"
+                    FontSize="Title" HorizontalOptions="Center"/>
+
+                <Label Text="Welcome to SVG: light &amp; scale insensitive Images" LineBreakMode="WordWrap"
+                        FontSize="Body" HorizontalTextAlignment="Center" Padding="0,0"/>
+
+                            
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand" Spacing="5">
+                    <Button Text="Prev Image"  
+                            SemanticProperties.Hint="Switch the image" 
+                            Command="{Binding PrevImageCommand}" 
+                            ImageSource="{svg:Svg Source=LeftArrow.svg, Height=20}"
+                            ContentLayout="Left, 5" /> 
+                    <Button Text="Next Image"  
+                            SemanticProperties.Hint="Switch the image" 
+                            Command="{Binding NextImageCommand}" 
+                            ImageSource="{svg:Svg Source=RightArrow.svg, Height=20, ColorMapping='ECF0F1=0F0,FFF=00000000'}"
+                            ContentLayout="Right, 5" /> 
+                </HorizontalStackLayout>
+                    
+                
+                <Label Text="{Binding ImageName}" 
+                       FontSize="Body" HorizontalOptions="Center" LineBreakMode="MiddleTruncation" />
+                
+           </VerticalStackLayout>
+            <svg:SvgImage
+                Grid.Row="1"
+                BackgroundColor="#f0f0f0"
+                Source="{Binding Image}"
+                VerticalOptions="Start"
+                Aspect="Fit" />
+        </Grid>
+        
+        <!-- <Button Command="{Binding AddCommand}" HorizontalOptions="End" VerticalOptions="Start" Margin="0,10,10,0"  -->
+        <!--         ImageSource="{svg:Svg Source=plus.svg,Height=30,ColorMapping={StaticResource ButtonIconColorMapping}}" -->
+        <!--         Style="{StaticResource LinkButton}"/> -->
+        <!-- -->
+        <!-- <VerticalStackLayout Margin="0,0,10,10" HorizontalOptions="End" VerticalOptions="End"> -->
+        <!--     <svg:SvgImage Source="plus.svg" HeightRequest="30" Aspect="Fill" IsLoggingEnabled="False" Command="{Binding AddCommand}"> -->
+        <!--         <svg:ColorMapping OldColor="#000" NewColor="{StaticResource MaterialSecondary}" /> -->
+        <!--     </svg:SvgImage> -->
+        <!-- </VerticalStackLayout> -->
+
+        <!-- <ContentView Margin="10,0,100,10" HorizontalOptions="Start" VerticalOptions="End"> -->
+        <!-- <CollectionView HeightRequest="200" HorizontalOptions="Fill" ItemsLayout="HorizontalList" -->
+        <!--                 ItemSizingStrategy="MeasureAllItems" SelectionMode="None" -->
+        <!--                 ItemsSource="{Binding TextItems}"> -->
+        <!--     <CollectionView.ItemTemplate><views:TextItemTemplate/></CollectionView.ItemTemplate> -->
+        <!-- </CollectionView> -->
+        <!-- </ContentView> -->
+
+    </Grid>
+ 
+</ContentPage>

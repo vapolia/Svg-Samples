@@ -1,0 +1,15 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="https://vapolia.eu/svg"
+             x:Class="SvgMauiDemo.Views.Layouts">
+    
+    <Grid>
+        <svg:SvgImage Source="vshade.svg" Aspect="Fill"  />    
+        <svg:SvgImage Source="00home_top.svg" VerticalOptions="Start"  />    
+        <svg:SvgImage Source="00home_top.svg" VerticalOptions="End"  Rotation="180" />
+        
+        <svg:SvgImage Source="star_on.svg" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center" ColorMapping="fffe8c=>Ff80ff" />    
+        <Label Text="Hello Svg !" HorizontalOptions="Center" VerticalOptions="Center" FontSize="30" />
+    </Grid>
+    
+</ContentPage>

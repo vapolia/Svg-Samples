@@ -1,0 +1,71 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="https://vapolia.eu/svg"
+             x:Class="SvgMauiDemo.Views.Grids"
+             Padding="10,0">
+    
+    <VerticalStackLayout>
+
+        <Label Text="Sample form with left icon:"
+               Margin="0,20,0,0" />
+        <Grid ColumnDefinitions="40, *">
+            <svg:SvgImage  
+                          Margin="10" 
+                          Source="edittoolbar32.svg" />
+            <Entry Grid.Column="1" Placeholder="You can write something here" />
+        </Grid>
+
+        <Label Text="Sample form with right button:" 
+               Margin="0,20,0,0" />
+        <Grid ColumnDefinitions="*, 40">
+            <Entry Placeholder="You can write something here" />
+            <svg:SvgImage Grid.Column="1" 
+                          Margin="10" 
+                          Source="clear.svg" />
+        </Grid>
+
+        <Label Text="Sample form with left and right icons/buttons:"
+               Margin="0,20,0,0" />
+        <Grid ColumnDefinitions="40, *, 40, 40">
+            <svg:SvgImage  
+                Margin="10" 
+                Source="error.svg" />
+            <Entry Grid.Column="1" Placeholder="You can write something here" />
+            <svg:SvgImage Grid.Column="2"
+                          Margin="10" 
+                          Source="clear.svg" />
+            <svg:SvgImage Grid.Column="3"
+                          Margin="10" 
+                          Source="right.svg" />
+        </Grid>
+
+        <Label Text="Sample form with left and right icons:"
+               Margin="0,20,0,0" />
+        <Grid ColumnDefinitions="Auto, *, 40">
+            <svg:SvgImage  
+                Margin="11" 
+                Source="refresh2.svg" />
+            <Entry Grid.Column="1" Placeholder="You can write something here" />
+            <svg:SvgImage Grid.Column="2"
+                          Margin="10" 
+                          Source="down.svg" />
+        </Grid>
+        
+        <Label Text="List with right icons:"
+               Margin="0,20,0,0" />
+        <CollectionView HeightRequest="200" BackgroundColor="LightBlue"
+                        ItemSizingStrategy="MeasureAllItems" SelectionMode="None"
+                        ItemsSource="{Binding TextItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,40" BackgroundColor="Yellow" Margin="10" Padding="10,5">
+                        <Label Text="Some text" VerticalOptions="Center" />
+                        <svg:SvgImage Grid.Column="1" Margin="10" Source="MSLive.svg" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

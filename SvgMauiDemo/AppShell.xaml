@@ -1,0 +1,33 @@
+<Shell
+    x:Class="SvgMauiDemo.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SvgMauiDemo"
+    xmlns:views="clr-namespace:SvgMauiDemo.Views"
+    xmlns:svg="https://vapolia.eu/svg"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+    
+        <Tab Icon="{svg:Svg Source=hand.svg, Height=28, ColorMapping='FFF=>666'}" Title="Demo">
+            <ShellContent
+                Title="Demo"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+
+        <ShellContent
+            Title="Background"
+            ContentTemplate="{DataTemplate views:Layouts}"
+            Icon="{svg:Svg Source=like.svg, Height=20, ColorMapping='000=>666'}"
+            Route="Layouts" />
+
+        <ShellContent
+            Title="Grids"
+            ContentTemplate="{DataTemplate views:Grids}"
+            Icon="{svg:Svg Source=red_circle2.svg, Height=20}"
+            Route="Grids" />
+
+    </TabBar>
+
+</Shell>
