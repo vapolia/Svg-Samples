@@ -243,12 +243,15 @@ toolbar.NavigationIcon = SvgFactory.GetDrawable("backward.svg", "000000=>FFFFFF"
 **iOS/Android: Load an SVG from a background thread**
 <details>
     <summary>Click to expand</summary>
+    
 See [this gist](https://gist.github.com/softlion/17aea986a8ea3594595ddf869ee49b37)
+
 </details>
 
 **iOS storyboard** (not maui ios): usage in an xcode storyboard
 <details>
   <summary>Click to expand</summary>
+    
 Open your storyboard file using `Open with xcode`. Add an Image view (UIImageView), set its custcom `Class` property to `UISvgImageView`, and optionally add a new `User Defined Runtime Attributes` as required:
 
 ![Attribute Inspector](https://image.ibb.co/e5N0uw/Prt_Scr_capture_11.jpg)
@@ -275,6 +278,7 @@ When only one dimension is constrained, the designer cannot determine how to set
 4. Enter a reasonable estimate for your view's runtime width **or** height. Use Width if you have set contraints on the height, and height otherwise.
 
 These constraints are removed at compile-time, meaning they will not affect your running app. The layout engine will add constraints as necessary at runtime to respect your view's intrinsicContentSize.
+
 </details>
   
 # Reference
@@ -359,6 +363,7 @@ And usage:
 ## Android native (not maui android)
 <details>
   <summary>Click to expand</summary>
+    
 Layout properties:
 
 | Tag | Type | Default value | Notes
@@ -375,6 +380,7 @@ android:autoMirrored | bool | false | true to mirror image in RTL languages
 
 `android:padding` is respected, and included in the width/height measurement.  
 `android:gravity` is respected, and included in the width/height measurement. If the svg is smaller than its view, this property controls its centering.
+
 </details>
 
 ## iOS native (not maui ios)
@@ -399,6 +405,7 @@ FillWidth | number | 0 | The width the svg would like to have. 0 to let the OS d
 FillHeight | number | 0 | The height the svg would like to have. 0 to let the OS decides using UI constraints or Frame value.
 
 `UIImageView.ContentMode` is forced by `UISvgImageView`, so it has no impact. Use `Aspect` instead.
+
 </details>
 
 
