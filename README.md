@@ -189,12 +189,12 @@ Another common mistake is setting the `ImageSource` of a `Button` in a style or 
 ```
 
 
-# Other Receipes
+# Other Recipes
 
 **Android native** (not MAUI Android): set the SVG image height the match the height of a Button
 <details>
   <summary>Click to expand</summary>
-  
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout 
@@ -229,6 +229,7 @@ Another common mistake is setting the `ImageSource` of a `Button` in a style or 
 ```
 
 Note that since the SVG has an intrinsic width calculated from its height and aspect ratio, the width displayed by the designer is incorrect. You can correct this in the designer by assigning a design-time only value to `layout_width` using the `tools` prefix: `tools:layout_width="30dp"` which requires the `xmlns:tools` namespace declaration.
+
 </details>
 
 
