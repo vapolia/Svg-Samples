@@ -280,7 +280,7 @@ When only one dimension is constrained, the designer cannot determine how to set
 These constraints are removed at compile-time, meaning they will not affect your running app. The layout engine will add constraints as necessary at runtime to respect your view's intrinsicContentSize.
 
 </details>
-  
+
 # Reference
 
 ## MAUI
