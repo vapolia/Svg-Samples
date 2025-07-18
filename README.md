@@ -21,12 +21,11 @@ Enterprise support available: contact [Vapolia](https://vapolia.eu)
 .net Maui Controls:
 - `SvgImage` displays an SVG image
 - `SvgImageSource` displays an SVG inside buttons, tabs or for any ImageSource.
+- Supports Android (23), iOS (14.2) and Windows (0.0.19041.0)
 
 .net Native Controls (without maui):
 - Android: `SvgImageView` and `SvgPictureDrawable`
-- iOS and Mac:  `UISvgImageView` with support for xcode designer
-
-
+- iOS:  `UISvgImageView` with support for xcode designer
 
 
 # Quick start for MAUI
