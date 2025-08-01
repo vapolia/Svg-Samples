@@ -423,6 +423,17 @@ public class App : Application
 ...
 ```
 
+## Limitations
+
+On Windows, `IsLoadAsync` is ignored and is always true.  
+Texts and bitmaps inside SVGs are never rendered.  
+A few svg tags are ignored.
+
+But:
+- svg styles are fully supported
+- the InnerSize property (which is the original declared size of the SVG) is useful to compute a scale between the original SVG and the displayed version, making programmatic SVG powerful to manipulate on screen.
+  If `IsLoadAsync` is false, this property is set immediately after `Source` is set.
+
 ## Tools
 
 On Windows install the [microsoft powertoys](https://docs.microsoft.com/fr-fr/windows/powertoys/file-explorer) to preview the SVG files in the Windows Explorer.
