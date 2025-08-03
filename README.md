@@ -153,6 +153,25 @@ Svg image with bindable color mapping
 </svg:SvgImage>
 ```  
 
+# Sources
+
+The `SvgImage.Source` property accepts a string value with a scheme prefix that indicates where the SVG data is loaded from. The following schemes are supported:
+
+- `string:` — the SVG content is provided directly as a string.
+  - Example: `string:<svg xmlns="http://www.w3.org/2000/svg" ... >...</svg>`
+- `res:` or none — the name of an embedded resource (typically an SVG file fileName.svg).
+  - Example: `res:MyApp.Images.logo.svg`
+- `file:` — a native resource file bundled with the app (platform-specific).
+  - Example: `file:logo.svg`
+- `nfile:` — a native file on the device's file system.
+  - Example: `nfile:/data/user/0/com.myapp/files/image.svg`
+- `http:` — a URL pointing to a remote SVG file.
+  - Example: `http://example.com/image.svg` or `https://example.com/image.svg`
+
+If no scheme is provided, the default behavior is typically equivalent to using the `res:` scheme (embedded resource).
+
+Alternatively, you can define you own custom `SvgSource`.
+
 # Common mistakes
 
 If nothing appears, ensure your svg file is displayed correctly in Windows Explorer (after installing this [extension](https://github.com/maphew/svg-explorer-extension/releases)). 
