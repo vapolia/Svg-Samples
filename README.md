@@ -164,7 +164,7 @@ The `SvgImage.Source` property accepts a string value with a scheme prefix that 
   - Example: `logo.svg`
 - `file:` — a native resource file bundled with the app (platform-specific).
   - Example: `file:logo.svg`
-- `nfile:` — a native file on the device's file system (iOS).
+- `nfile:` — a native file on the device's file system (platform-specific).
   - Example: `nfile:/data/user/0/com.myapp/files/image.svg`
 - `https:` or `http:`  — a URL pointing to a remote SVG file.
   - Example: `http://example.com/image.svg` or `https://example.com/image.svg`
