@@ -159,13 +159,14 @@ The `SvgImage.Source` property accepts a string value with a scheme prefix that 
 
 - `string:` — the SVG content is provided directly as a string.
   - Example: `string:<svg xmlns="http://www.w3.org/2000/svg" ... >...</svg>`
-- `res:` or none — the name of an embedded resource (typically an SVG file fileName.svg).
+- `res:` or none — the name of an embedded resource (an SVG file).
   - Example: `res:MyApp.Images.logo.svg`
+  - Example: `logo.svg`
 - `file:` — a native resource file bundled with the app (platform-specific).
   - Example: `file:logo.svg`
-- `nfile:` — a native file on the device's file system.
+- `nfile:` — a native file on the device's file system (iOS).
   - Example: `nfile:/data/user/0/com.myapp/files/image.svg`
-- `http:` — a URL pointing to a remote SVG file.
+- `https:` or `http:`  — a URL pointing to a remote SVG file.
   - Example: `http://example.com/image.svg` or `https://example.com/image.svg`
 
 If no scheme is provided, the default behavior is typically equivalent to using the `res:` scheme (embedded resource).
