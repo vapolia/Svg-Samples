@@ -21,12 +21,12 @@ Enterprise support available: contact [Vapolia](https://vapolia.eu)
 .net Maui Controls:
 - `SvgImage` displays an SVG image
 - `SvgImageSource` displays an SVG inside buttons, tabs or for any ImageSource.
-- Supports Android (23), iOS (14.2) and Windows (0.0.19041.0)
+- Supports Android (23), iOS (14.2) and Windows (10.0.19041.0)
 
 .net Native Controls (without maui):
 - Android: `SvgImageView` and `SvgPictureDrawable`
 - iOS:  `UISvgImageView` with support for xcode designer
-
+- Windows: `Svg` inherited from `Canvas`
 
 # Quick start for MAUI
 
@@ -446,9 +446,10 @@ public class App : Application
 ## Limitations
 
 On Windows, `IsLoadAsync` is ignored and is always true.  
-On Windows, `SvgImageSource` uses the Microsoft Windows SVG renderer, which has its own limitations, and does not support ColorMappings.  
-Texts and bitmaps inside SVGs are never rendered.  
-A few svg tags are ignored, including the pattern tag.
+On Windows, `SvgImageSource` uses the Microsoft Windows SVG renderer, which has its own limitations, and does not support `ColorMappings`.  
+On Windows, to be able to get the `Command` to fire, you must set `BackgroundColor="#01000000"` or use any other non transparent color. The default is transparent.
+Texts and bitmaps inside SVGs are never rendered. The reason is, when you scale text on high res devices they become oversized.  
+A few svg tags are ignored, like the `pattern` tag.
 
 But:
 - svg styles are fully supported
@@ -460,9 +461,10 @@ But:
 On Windows install the [microsoft powertoys](https://docs.microsoft.com/fr-fr/windows/powertoys/file-explorer) to preview the SVG files in the Windows Explorer.
 
 ### Supported Platforms
-- Maui, net-iOS, net-Android, Xamarin Forms
-- Android api level 15+ (Android 4.0.3+)  
-- iOS 8+
+- Maui, net-iOS (without maui), net-Android (without maui)
+- Android api level 23+
+- iOS 14.2+
+- Windows 10.0.19041.0+
 
 ### Mvvm friendly
 This control provides an event and a Command when the image is tapped, making it easy to use with or without mvvm frameworks.  
