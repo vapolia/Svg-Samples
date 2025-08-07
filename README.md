@@ -210,6 +210,42 @@ Another common mistake is setting the `ImageSource` of a `Button` in a style or 
 
 # Other Recipes
 
+Use a bindable color mapping, where `CurrentColorTheme.TextColor` is of type `Color`.  
+```xaml
+    <svg:SvgImage
+        Command="{Binding ShowSettingsCommand}"
+        SemanticProperties.Hint="Open settings"
+        HeightRequest="40" 
+        HorizontalOptions="Start"
+        Source="settings.svg"
+        BackgroundColor="#01000000"
+        ColorMapping="{Binding CurrentColorTheme.TextColor, Converter={StaticResource ColorToBlackColorMappingStringConverter}}" />
+```
+
+`ColorToBlackColorMappingStringConverter.cs` :
+```c#
+[AcceptEmptyServiceProvider]
+public class ColorToBlackColorMappingStringConverter : BaseConverter<Color, ColorMappings>
+{
+    /// <inheritdoc/>
+    public override ColorMappings DefaultConvertReturnValue { get; set; } = string.Empty;
+
+    /// <inheritdoc/>
+    public override Color DefaultConvertBackReturnValue { get; set; } = Transparent;
+
+    /// <inheritdoc/>
+    public override ColorMappings ConvertFrom(Color value, CultureInfo? culture)
+    {
+        ArgumentNullException.ThrowIfNull(value);
+        return $"000=>{value.ToArgbHex()[1..]}";
+    }
+
+    /// <inheritdoc/>
+    public override Color ConvertBackTo(ColorMappings value, CultureInfo? culture) 
+        => throw new NotSupportedException();
+}
+```
+
 **Android native** (not MAUI Android): set the SVG image height the match the height of a Button
 <details>
   <summary>Click to expand</summary>
