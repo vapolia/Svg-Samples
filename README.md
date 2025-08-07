@@ -446,8 +446,9 @@ public class App : Application
 ## Limitations
 
 On Windows, `IsLoadAsync` is ignored and is always true.  
+On Windows, `SvgImageSource` uses the Microsoft Windows SVG renderer, which has its own limitations, and does not support ColorMappings.  
 Texts and bitmaps inside SVGs are never rendered.  
-A few svg tags are ignored.
+A few svg tags are ignored, including the pattern tag.
 
 But:
 - svg styles are fully supported
