@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Misc/">
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="SvgAndroidNativeDemo/SvgAndroidNativeDemo.csproj" />
+  <Project Path="SvgIosNativeDemo/SvgIosNativeDemo.csproj" />
+  <Project Path="SvgMauiDemo/SvgMauiDemo.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
