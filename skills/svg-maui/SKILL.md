@@ -205,7 +205,30 @@ var svg = await SvgFactory.FromUri(SvgSource.FromNativeFile("info.svg"));
 
 ---
 
-## 8. Common Mistakes & Troubleshooting
+## 8. Bindings & limitations
+
+⚠️ The `{svg:Svg ...}` markup extension does **NOT** support bindings on its parameters (`Height`, `Width`, `ColorMapping`). The XAML SourceGen cannot convert a `Binding` to the CLR types (`Vapolia.Svgs.ColorMapping`, `double`, etc.) the markup expects. Typical error:
+
+```
+CS0030: Cannot convert type 'Microsoft.Maui.Controls.BindingBase' to 'Vapolia.Svgs.ColorMapping'
+```
+
+**Rule:** use the markup extension only with literal/static values:
+```xml
+ImageSource="{svg:Svg icon.svg,Height=20,ColorMapping='000000=>FFFFFF'}"
+```
+
+**When dynamic binding is required:** use the `<svg:SvgImage>` control directly — its properties are `BindableProperty` and accept all binding forms:
+```xml
+<svg:SvgImage Source="icon.svg" WidthRequest="18"
+              ColorMapping="{Binding TextColor, Converter={StaticResource ColorToBlackColorMappingStringConverter}}" />
+```
+
+For a button with a dynamic icon, compose a `Border` + `TapGestureRecognizer` + `HorizontalStackLayout` containing `SvgImage` + `Label`, rather than using `Button.ImageSource`.
+
+---
+
+## 9. Common Mistakes & Troubleshooting
 
 | Symptom | Cause | Fix |
 |---|---|---|
@@ -225,7 +248,7 @@ var names = GetType().Assembly.GetManifestResourceNames()
 
 ---
 
-## 9. Full MAUI Page Example
+## 10. Full MAUI Page Example
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
