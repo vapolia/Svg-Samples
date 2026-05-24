@@ -16,6 +16,21 @@ Use Cases:
 
 Enterprise support available: contact [Vapolia](https://vapolia.eu)
 
+# AI Assistant Plugin (Claude Code)
+
+Get instant, context-aware help with this component directly inside your AI coding assistant — no documentation browsing required.
+
+Install the plugin in two commands (no cloning needed):
+
+```shell
+/plugin marketplace add vapolia/Svg-Samples
+/plugin install vapolia-svg@vapolia-plugins
+```
+
+Once installed, your AI assistant automatically knows how to set up `Vapolia.Svg`, write `SvgImage` and `SvgImageSource` XAML, apply color mappings, configure embedded resources, and troubleshoot common issues — for MAUI, native Android, and native iOS.
+
+Compatible with **Claude Code**, **Cursor**, **GitHub Copilot**, **Gemini CLI**, and any tool supporting the [Agent Skills open standard](https://agentskills.io).
+
 # SvgImage and SvgImageSource
 
 .net Maui Controls:

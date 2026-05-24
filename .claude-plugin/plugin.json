@@ -1,0 +1,9 @@
+{
+  "name": "vapolia-svg",
+  "description": "SVG component for .NET MAUI, Android and iOS. Adds a skill that helps Claude integrate the Vapolia.Svg NuGet package — setup, SvgImage, SvgImageSource, color mapping, troubleshooting.",
+  "version": "1.0.5",
+  "author": {
+    "name": "Vapolia"
+  },
+  "homepage": "https://github.com/vapolia/Svg-Samples"
+}
