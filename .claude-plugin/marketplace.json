@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "vapolia-svg",
-      "source": ".",
+      "source": "./",
       "description": "SVG component for .NET MAUI, Android and iOS (Vapolia.Svg NuGet package)"
     }
   ]

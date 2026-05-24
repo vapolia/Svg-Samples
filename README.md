@@ -23,7 +23,7 @@ Get instant, context-aware help with this component directly inside your AI codi
 Install the plugin in two commands (no cloning needed):
 
 ```shell
-/plugin marketplace add vapolia/Svg-Samples
+/plugin market add vapolia/Svg-Samples
 /plugin install vapolia-svg@vapolia-plugins
 ```
 
