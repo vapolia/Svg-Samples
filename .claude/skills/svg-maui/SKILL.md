@@ -1,10 +1,8 @@
-# Vapolia.Svg — SVG Component for MAUI, Android & iOS
-
-You are an expert in integrating the **Vapolia.Svg** NuGet package into .NET MAUI, native Android, and native iOS applications. When a user asks for help with SVG images in their MAUI or native project, follow this guide precisely.
-
+---
+description: Reference for integrating Vapolia.Svg into .NET MAUI, Android, and iOS. Use when the user asks about SVG images, SvgImage, SvgImageSource, color mapping, UseEasySvg, or adding SVG support to a .NET MAUI or native mobile project.
 ---
 
-## Package
+# Vapolia.Svg — SVG Component for MAUI, Android & iOS
 
 **NuGet:** `Vapolia.Svg` (latest: 1.0.5+)  
 **Supports:** Android 23+, iOS 14.2+, Windows 10.0.19041.0+, MAUI cross-platform
@@ -134,7 +132,7 @@ Color formats: `AARRGGBB`, `RRGGBB`, `RGB` (hex, no `#` needed in string form).
 "000000=>e01a1a"                    → black→dark red
 ```
 
-Bindable form using `ColorMapping` objects in a `ColorMappings` collection:
+Bindable form using `ColorMapping` objects:
 ```xml
 <svg:SvgImage Source="icon.svg" HeightRequest="32">
     <svg:ColorMapping OldColor="Blue" NewColor="#80000000" />
@@ -185,7 +183,6 @@ toolbar.NavigationIcon = SvgFactory.GetDrawable("backward.svg", "000000=>FFFFFF"
 ### AppDelegate.cs
 ```csharp
 using Vapolia.Svgs;
-// Load from bundle
 var svg = await SvgFactory.FromUri(SvgSource.FromNativeFile("info.svg"));
 ```
 
@@ -214,13 +211,13 @@ var svg = await SvgFactory.FromUri(SvgSource.FromNativeFile("info.svg"));
 |---|---|---|
 | Nothing displays | SVG not set as `EmbeddedResource` | Check `.csproj` `<EmbeddedResource Include="...">` |
 | Nothing displays | SVG missing `viewBox` attribute | Open SVG in text editor, add `viewBox="0 0 W H"` to `<svg>` tag |
-| Nothing displays | SVG color = background color (e.g. white on white) | Use `ColorMapping` or edit SVG |
+| Nothing displays | SVG color = background color | Use `ColorMapping` or edit SVG |
 | SVG not found | `Assembly Name` ≠ `Default Namespace` | Use full resource name: `YourNamespace.Folder.file.svg` |
 | Nothing displays | `UseEasySvg()` missing | Add to `MauiProgram.cs` |
 | Button ImageSource broken | Set in Style/Trigger | Set on `Image` property, not `ImageSource` in styles |
 | Color binding not working | Using `SvgImageSource` | Use `SvgImage` instead — `SvgImageSource` is raster-only |
 
-To discover the full embedded resource name, open the compiled `.dll` with **Telerik JustDecompile** or run:
+Discover full embedded resource names at runtime:
 ```csharp
 var names = GetType().Assembly.GetManifestResourceNames()
     .Where(r => r.EndsWith(".svg"));
@@ -239,14 +236,11 @@ var names = GetType().Assembly.GetManifestResourceNames()
              IconImageSource="{svg:Svg appicon.svg,Height=60}">
     <VerticalStackLayout Padding="16" Spacing="12">
 
-        <!-- Simple image -->
         <svg:SvgImage Source="logo.svg" HeightRequest="80" HorizontalOptions="Center" />
 
-        <!-- Recolored -->
         <svg:SvgImage Source="logo.svg" HeightRequest="50"
                       ColorMapping="000=>e01a1a" />
 
-        <!-- Button with SVG icon -->
         <Button Text="Next" ImageSource="{svg:Svg arrow.svg,Height=20}"
                 ContentLayout="Right,5"
                 Command="{Binding NextCommand}" />
