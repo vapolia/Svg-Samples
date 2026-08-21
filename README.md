@@ -1,7 +1,7 @@
-|               Maui and Native iOS + Android on net8/9               |
+|               Maui / iOS+Android / net9/10               |
 |:------------------------------------------------------------------------------------------------:|
-| [![NuGet][nuget-img]][nuget-link]  ![Nuget](https://img.shields.io/nuget/dt/Vapolia.Svg) |
-|                                    [![][demo-img]][demo-link]                                    |
+| [![NuGet][nuget-img]][nuget-link]  ![Nuget](https://img.shields.io/nuget/dt/Vapolia.Svg) [![][demo-img]][demo-link] |
+|          [GitHub](https://github.com/vapolia/Svg-Samples)     |
 
 # SVG
 
